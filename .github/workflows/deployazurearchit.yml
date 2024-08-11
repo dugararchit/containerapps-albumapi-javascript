@@ -25,6 +25,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
+        appSourcePath: ${{ github.workspace }}/src 
         push: true
         tags: ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }}
         load: true
