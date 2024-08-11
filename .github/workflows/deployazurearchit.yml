@@ -43,8 +43,4 @@ jobs:
           --image ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }} \
          
 
-    - name: Azure CLI - Restart Azure Container App
-      run: |
-        az containerapp restart \
-          --name album-api2 \
-          --resource-group album-containerapps2
+
