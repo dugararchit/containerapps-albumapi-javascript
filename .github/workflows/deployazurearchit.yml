@@ -26,7 +26,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ca3dc64c8880acr.azurecr.io/album-api2:af889f46b35c2e671bc743e92315dbc86b710769
+        tags: ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }}
         load: true
 
     - name: Azure CLI - Deploy to Azure Container App
