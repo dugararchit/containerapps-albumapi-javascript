@@ -5,7 +5,7 @@ on:
   # Automatically trigger it when detected changes in repo
   push:
     branches: 
-      [ main ]
+      [ main1 ]
     paths:
     - 'src/**'
     - '.github/workflows/album-api1-AutoDeployTrigger-7fadbcab-0903-4c9c-ace9-68c895e191da.yml'
