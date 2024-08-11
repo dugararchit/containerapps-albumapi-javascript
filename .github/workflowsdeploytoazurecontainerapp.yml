@@ -1,0 +1,47 @@
+name: Deploy to Azure Container App
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_NEW }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: ca3dc64c8880acr.azurecr.io/album-api:cca14cf49057d1dc19673e7f51c627da1ee0423d
+        load: true
+
+    - name: Azure CLI - Deploy to Azure Container App
+      run: |
+        az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        az containerapp update \
+          --name album-api \
+          --resource-group album-containerapps \
+          --image ca3dc64c8880acr.azurecr.io/album-api:cca14cf49057d1dc19673e7f51c627da1ee0423d \
+          --registry-server ca3dc64c8880acr.azurecr.io \
+          --registry-username ca3dc64c8880acr \
+          --registry-password YaADF45GEM8F9oS7SMYTeFcL2sWndHE3YlpMD5rfFh+ACRDFIBuo
+
+    - name: Azure CLI - Restart Azure Container App
+      run: |
+        az containerapp restart \
+          --name album-api2 \
+          --resource-group album-containerapps2
