@@ -24,9 +24,9 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: ./src
         file: ./src/Dockerfile
-        appSourcePath: ${{ github.workspace }}/src 
+        
         push: true
         tags: ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }}
         load: true
