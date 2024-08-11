@@ -34,8 +34,8 @@ jobs:
         az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID_NEW }}
         az containerapp update \
           --name album-api \
-          --resource-group album-containerapps \
-          --image ca3dc64c8880acr.azurecr.io/album-api:cca14cf49057d1dc19673e7f51c627da1ee0423d \
+          --resource-group album-containerapps2 \
+          --image ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }} \
           --registry-server ca3dc64c8880acr.azurecr.io \
           --registry-username ca3dc64c8880acr \
           --registry-password YaADF45GEM8F9oS7SMYTeFcL2sWndHE3YlpMD5rfFh+ACRDFIBuo
