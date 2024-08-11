@@ -21,13 +21,15 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS_NEW }}
 
+    - name: Login to Azure Container Registry
+      run: az acr login --name ca3dc64c8880acr
+
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
         context: ./src
         file: ./src/Dockerfile
-        username: ca3dc64c8880acr
-        password: YaADF45GEM8F9oS7SMYTeFcL2sWndHE3YlpMD5rfFh+ACRDFIBuo
         push: true
         tags: ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }}
         load: true
