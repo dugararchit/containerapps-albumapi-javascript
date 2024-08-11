@@ -41,9 +41,7 @@ jobs:
           --name album-api2 \
           --resource-group album-containerapps2 \
           --image ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }} \
-          --registry-server ca3dc64c8880acr.azurecr.io \
-          --registry-username ca3dc64c8880acr \
-          --registry-password YaADF45GEM8F9oS7SMYTeFcL2sWndHE3YlpMD5rfFh+ACRDFIBuo
+         
 
     - name: Azure CLI - Restart Azure Container App
       run: |
