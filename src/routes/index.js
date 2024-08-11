@@ -13,5 +13,5 @@ router.get("/", function (req, res, next) {
 router.get("/albums", orderController.index);
 router.get("/albums1", orderController.index);
 router.get("/albums2", orderController.index);
-router.get("/albums3", orderController.index);
+router.get("/albums4", orderController.index);
 module.exports = router;
