@@ -33,7 +33,7 @@ jobs:
       run: |
         az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID_NEW }}
         az containerapp update \
-          --name album-api \
+          --name album-api2 \
           --resource-group album-containerapps2 \
           --image ca3dc64c8880acr.azurecr.io/album-api2:${{ github.sha }} \
           --registry-server ca3dc64c8880acr.azurecr.io \
