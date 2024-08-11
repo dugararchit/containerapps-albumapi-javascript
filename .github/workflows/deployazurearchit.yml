@@ -31,7 +31,7 @@ jobs:
 
     - name: Azure CLI - Deploy to Azure Container App
       run: |
-        az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID_NEW }}
         az containerapp update \
           --name album-api \
           --resource-group album-containerapps \
